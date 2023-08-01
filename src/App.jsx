@@ -49,7 +49,6 @@ function App() {
     event.preventDefault();
     const abortController = new AbortController();
     const response = await fetchActivity(abortController, participants);
-    console.log({ response });
     setError(errorHandler(response));
     setActivities((activities) => [...activities, response.data]);
   };
@@ -61,9 +60,24 @@ function App() {
           activity.key !== activityToDelete.key ||
           activity.activity !== activity.activity,
       );
-      console.log({ activities, activityToDelete, newActivities });
       setActivities(newActivities);
-      console.log({ newActivities, activityToDelete });
+    },
+    [activities],
+  );
+
+  const handleCheckActivity = useCallback(
+    (activityToCheck) => {
+      setActivities((activities) =>
+        activities.map((activity) => {
+          if (activity.key === activityToCheck.key) {
+            return {
+              ...activity,
+              checked: true,
+            };
+          }
+          return activity;
+        }),
+      );
     },
     [activities],
   );
@@ -87,6 +101,7 @@ function App() {
       <ActivitiesList
         activities={activities}
         handleDelete={handleDeleteActivity}
+        handleCheck={handleCheckActivity}
       />
     </main>
   );

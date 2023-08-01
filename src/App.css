@@ -32,4 +32,16 @@
   cursor: pointer;
   font-weight: 900;
   color: crimson;
+  margin-left: 0.5rem;
+}
+
+.check-icon {
+  padding: 0px 0.25rem;
+  cursor: pointer;
+  font-weight: 900;
+  color: greenyellow;
+}
+
+.checked {
+  text-decoration: line-through;
 }
