@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import viteLogo from "/vite.svg";
 import "./App.css";
 import { ActivitiesList } from "./components/ActivitiesList";
 import { InputSection } from "./components/InputSection";
@@ -54,8 +54,16 @@ function App() {
     setActivities((activities) => [...activities, response.data]);
   };
 
+  const handleDeleteActivity = (activityToDelete) => {
+    const newActivities = activities.filter(
+      (activity) => activity.key !== activityToDelete.key,
+    );
+    setActivities(newActivities);
+    console.log({ newActivities, activityToDelete });
+  };
+
   return (
-    <main>
+    <main className="container">
       <h1>Your Activity List</h1>
       <InputSection>
         <div className="input-and-label">
@@ -70,7 +78,10 @@ function App() {
         <button onClick={handleAddActivity}>Add Activity</button>
       </InputSection>
       {error && <span>{error}</span>}
-      <ActivitiesList activities={activities} />
+      <ActivitiesList
+        activities={activities}
+        handleDelete={handleDeleteActivity}
+      />
     </main>
   );
 }
