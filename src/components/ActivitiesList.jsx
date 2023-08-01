@@ -9,8 +9,8 @@ export const ActivitiesList = ({
   return (
     <section>
       <ul>
-        {activities.map((activity) => (
-          <li key={activity.key}>
+        {activities.map((activity, idx) => (
+          <li key={activity.key + idx}>
             <span className={`${activity.checked && "checked"}`}>
               {activity.activity}
             </span>
