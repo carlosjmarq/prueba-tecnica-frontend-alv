@@ -5,42 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 .container {
   width: 25rem;
   display: flex;
@@ -66,24 +30,6 @@
 .delete-icon {
   padding: 0px 0.25rem;
   cursor: pointer;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul li:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 2.5;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px 0.5rem;
-  background-color: rgba(0, 0, 0, 0.15);
+  font-weight: 900;
+  color: crimson;
 }

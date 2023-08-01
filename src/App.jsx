@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
@@ -54,13 +54,19 @@ function App() {
     setActivities((activities) => [...activities, response.data]);
   };
 
-  const handleDeleteActivity = (activityToDelete) => {
-    const newActivities = activities.filter(
-      (activity) => activity.key !== activityToDelete.key,
-    );
-    setActivities(newActivities);
-    console.log({ newActivities, activityToDelete });
-  };
+  const handleDeleteActivity = useCallback(
+    (activityToDelete) => {
+      const newActivities = activities.filter(
+        (activity) =>
+          activity.key !== activityToDelete.key ||
+          activity.activity !== activity.activity,
+      );
+      console.log({ activities, activityToDelete, newActivities });
+      setActivities(newActivities);
+      console.log({ newActivities, activityToDelete });
+    },
+    [activities],
+  );
 
   return (
     <main className="container">

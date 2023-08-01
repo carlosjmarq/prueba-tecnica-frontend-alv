@@ -14,15 +14,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -56,15 +47,23 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+  text-align: left;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0.5rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.15);
 }
